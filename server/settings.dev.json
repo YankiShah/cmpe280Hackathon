@@ -1,0 +1,28 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "db": {
+    "port": 3306,
+    "host": "localhost",
+    "user": "root",
+    "password": "admin",
+    "database": "280 hackathon",
+    "connectionLimit": 10
+  },
+  "logger": {
+    "namespaces": {
+      "root": "info",
+      "m": "debug",
+      "m.db": "debug",
+      "m.middleware": "debug",
+      "m.metric": "info",
+      "m.executor": "info",
+      "m.service": "debug",
+      "m.shutdown": "info"
+    },
+    "separator": ".",
+    "appender": "console"
+  }
+}
