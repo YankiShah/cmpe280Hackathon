@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="src/assets/images/favicon-16x16.png">
+    <!-- CSS (load bootstrap) -->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <!--<link rel="stylesheet" href="bower_components/highcharts/css/highcharts.css">-->
+    <link rel="stylesheet" href="src/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="src/style/style.css">
+    <link rel="stylesheet" href="src/style/custom.css">
+
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/mathjs/dist/math.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/highcharts/highstock.js"></script>
+    <script src="bower_components/highcharts/highcharts-more.js"></script>
+    <script src="bower_components/highcharts/modules/map.js"></script>
+    <script src="bower_components/highcharts/modules/no-data-to-display.js"></script>
+    <script src="bower_components/highcharts/modules/exporting.js"></script>
+    <script src="bower_components/highcharts/modules/solid-gauge.js"></script>
+    <!--<script src="bower_components/highcharts/themes/sand-signika.js"></script>-->
+    <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="src/assets/plugins/x2json/xml2json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <!--<script src="src/assets/plugins/epos-2.3.0.js"></script>-->
+
+
+    <!--material table-->
+    <!-- style sheet -->
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- module -->
+    <script type="text/javascript"
+            src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+
+    <script src="src/config/config.js"></script>
+
+
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
+<md-content md-scroll-y>
+    <ui-view></ui-view>
+</md-content>
+
+
+<!--angular-->
+<script src="src/app.js"></script>
+<script src="src/services/general.service.js"></script>
+<script src="src/services/api.service.js"></script>
+<script src="src/components/fieldMap/fieldMap.js"></script>
+<script src="src/components/calculator/calculator.js"></script>
+<script src="src/components/employee/e_login.js"></script>
+<script src="src/components/employee/e_login_quick.js"></script>
+<script src="src/components/card/usercard.js"></script>
+<script src="src/components/affix/affix.js"></script>
+<script src="src/routes/main/main.js"></script>
+<script src="src/routes/home/home.js"></script>
+<script src="src/routes/map/map.js"></script>
+<script src="src/routes/chart/chart.js"></script>
+</body>
+</html>
+

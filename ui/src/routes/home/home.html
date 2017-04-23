@@ -1,0 +1,64 @@
+<div class="home-wrapper">
+
+    <md-card>
+        <md-card-content>
+            <div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+        </md-card-content>
+    </md-card>
+
+    <div layout="column">
+        <md-card flex>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Zone List</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <md-list layout="row" layout-padding layout-wrap>
+                    <md-list-item flex-gt-xs="50" class="md-2-line" ng-click="null" ng-repeat="zone in $root.zoneList">
+                        <span class="md-avatar">
+                           <i class="material-icons">panorama_horizontal</i>
+                        </span>
+                        <div class="md-list-item-text">
+                            <h3>{{zone.name}}</h3>
+                            <p>
+                                {{zone.crop_name}}
+                            </p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+        <md-card flex>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Hub List</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <md-list layout="row" layout-padding layout-wrap>
+                    <md-list-item flex-gt-xs="50" class="md-3-line" ng-click="null" ng-repeat="hub in $root.hubList">
+                       <span class="md-avatar">
+                           <i class="material-icons">device_hub</i>
+                        </span>
+                        <div class="md-list-item-text">
+                            <h3>{{hub.mac_address}}</h3>
+                            <p>({{hub.lat}}, {{hub.lng}})</p>
+                            <p>
+                                {{hub.status_name}} <i class="circle-status {{hub.status_name}}"></i>
+                            </p>
+                        </div>
+                        <span flex></span>
+                        <span>
+                            <md-button class="md-fab    md-raised" ng-class="{'md-warn': hub.status_name == 'off'}">
+                                <md-icon><i class="material-icons">power_settings_new</i></md-icon>
+                                <md-tooltip md-direction="top">turn {{hub.status_name == 'off'?'on':'off'}}</md-tooltip>
+                            </md-button>
+                        </span>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </div>
+
+</div>

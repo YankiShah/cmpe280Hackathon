@@ -1,0 +1,40 @@
+{
+  "name": "smart-farm",
+  "version": "0.0.0",
+  "description": "TODO add a description",
+  "title": "smartFarm",
+  "author": "smartFarm <>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smartfarm/smart-farm.git"
+  },
+  "readme": "TODO add a readme description",
+  "license": "TODO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js --config=settings.dev.json --log=logs",
+    "jsdoc": "./node_modules/.bin/jsdoc -r -c ./jsdoc-config.json -d ./jsdoc",
+    "apidoc": "./node_modules/.bin/apidoc -f \".*\\.js$\" -i ./app -o ./apidoc"
+  },
+  "bin": {
+    "sf": "server.js"
+  },
+  "dependencies": {
+    "app-module-path": "1.1.0",
+    "bluesky-logger": "0.7.0",
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "lodash": "4.15.0",
+    "minimist": "1.2.0",
+    "moment": "2.15.0",
+    "mysql": "2.11.1",
+    "q": "1.4.1",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "apidoc": "0.16.1",
+    "docdash": "0.4.0",
+    "jsdoc": "3.4.1",
+    "mocha": "3.0.2"
+  }
+}

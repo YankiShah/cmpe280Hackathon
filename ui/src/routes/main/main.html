@@ -1,0 +1,114 @@
+<section class="admin-wrapper quick-sale-wrapper" layout="row" flex>
+    <div class="md-sidenav-shadow" hide show-gt-xs></div>
+    <md-sidenav
+            class="md-sidenav-left fixed"
+            md-component-id="left"
+            md-is-locked-open="$mdMedia('gt-xs')"
+            md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Smart Farm</h1>
+            <img class="logo-side" src="src/assets/images/logo.jpg" alt="">
+        </md-toolbar>
+        <md-content>
+            <md-list flex>
+                <a ui-sref="main.home" ui-sref-active="active">
+                    <md-list-item class="md-1-line" ng-click="null">
+                        <span class="md-avatar">
+                            <i class="material-icons">home</i>
+                        </span>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Home</h3>
+                        </div>
+                    </md-list-item>
+                </a>
+                <a ui-sref="main.map" ui-sref-active="active">
+                    <md-list-item class="md-1-line" ng-click="null">
+                        <span class="md-avatar">
+                            <i class="material-icons">map</i>
+                        </span>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Map</h3>
+                        </div>
+                    </md-list-item>
+                </a>
+                <a ui-sref="main.chart" ui-sref-active="active">
+                    <md-list-item class="md-1-line" ng-click="null">
+                        <span class="md-avatar">
+                             <i class="material-icons">multiline_chart</i>
+                        </span>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Chart</h3>
+                        </div>
+                    </md-list-item>
+                </a>
+                <a ui-sref="main.team" ui-sref-active="active">
+                    <md-list-item class="md-1-line" ng-click="null">
+                        <span class="md-avatar">
+                             <i class="material-icons">group</i>
+                        </span>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Team</h3>
+                        </div>
+                    </md-list-item>
+                </a>
+            </md-list>
+        </md-content>
+        <md-content layout-padding>
+            <md-button ng-click="close()" class="md-primary pull-right" hide-gt-xs>
+                Close
+            </md-button>
+        </md-content>
+        <div flex></div>
+        <div class="footer text-center">
+            <small>&#169; 2017, by Nam Phan. Education purpose only.</small>
+        </div>
+
+    </md-sidenav>
+
+    <md-content class="main" flex>
+        <div class="top-bar" layout="row">
+            <ul class="list-unstyled" hide-gt-xs>
+                <li>
+                    <a href="javascript:void(0)" ng-click="toggleLeft()"><img class="logo"
+                                                                              src="src/assets/images/logo.jpg"
+                                                                              alt=""></a>
+                </li>
+                <!--<li>-->
+                <!--<a ng-click="toggleLeft()">-->
+                <!--<md-button class="md-fab" aria-label="Eat cake">-->
+                <!--<md-icon><i class="material-icons">menu</i></md-icon>-->
+                <!--</md-button>-->
+                <!--</a>-->
+                <!--</li>-->
+            </ul>
+            <span flex></span>
+            <!--<div>-->
+            <!--<md-button ng-click="logout()">-->
+            <!--<md-icon>-->
+            <!--<i class="material-icons">account_box</i>-->
+            <!--</md-icon>-->
+            <!--Logout-->
+            <!--</md-button>-->
+            <!--</div>-->
+            <!--<a ui-sref="saleQuick.home">-->
+            <!--<md-button>-->
+            <!--<md-icon>-->
+            <!--<i class="material-icons">store</i>-->
+            <!--</md-icon>-->
+            <!--Store-->
+            <!--</md-button>-->
+            <!--</a>-->
+        </div>
+        <div layout="row" layout-align="top center">
+            <ui-view flex></ui-view>
+            <field-map place-polygon-callback="vm.addingZoneOnMap"
+                       place-marker-callback="vm.addingHubOnMap"></field-map>
+        </div>
+
+        <div flex></div>
+
+    </md-content>
+
+
+</section>

@@ -1,0 +1,6 @@
+#
+# smartFarm - https://github.com/smartfarm/smart-farm.git
+#
+# Copyright (c) 2017 smartFarm
+#
+# Add here your help message.

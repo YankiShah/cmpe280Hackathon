@@ -1,0 +1,41 @@
+.admin-wrapper{
+  height: 100vh;
+  position: relative;
+
+}
+.admin-home-wrapper {
+  table {
+    th {
+      font-size: 15px !important;
+    }
+  }
+}
+
+.admin-login-wrapper {
+  .bg-full {
+    background: url(../assets/images/store-bg.jpg) no-repeat center;
+    background-size: cover;
+  }
+  md-card{
+    margin-top: 10%;
+    z-index: 1;
+    md-card-content{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  .fa{
+    color: $cl_area_blue;
+    font-size: 25px;
+  }
+}
+
+/*other*/
+.bg-full {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

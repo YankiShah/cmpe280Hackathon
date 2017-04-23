@@ -1,0 +1,40 @@
+<div layout-padding="" class="e-login-wrapper">
+
+    <ul class="list-inline-block text-center" ng-show="!vmELogin.showActionsPanel">
+        <li ng-repeat="u in vmELogin.users">
+            <a href="javascript:void(0)" ng-click="vmELogin.select(u)">
+                <user-card name="{{u.first_name}} {{u.last_name}}" theme="forest"></user-card>
+            </a>
+        </li>
+    </ul>
+    <md-content class="md-padding" layout="column" ng-if="vmELogin.showActionsPanel">
+        <span flex></span>
+        <div flex layout="column"
+             class="actions-wrapper">
+            <md-card>
+                <md-toolbar md-scroll-shrink>
+                    <div class="md-toolbar-tools">
+                        <md-button ng-click="vmELogin.back()"><i class="fa fa-arrow-left"></i> Back
+                        </md-button>
+                        <span flex></span>
+                        <h3>
+                            <span>Hi, {{vmELogin.selectedUser.first_name}} {{vmELogin.selectedUser.last_name}}</span>
+                        </h3>
+                        <span flex></span>
+                        <md-button class="md-raised md-warn" ng-click="vmELogin.ok()"
+                                   ng-disabled="!vmELogin.password">
+                            Login
+                        </md-button>
+                    </div>
+                </md-toolbar>
+
+                <div class="md-block md-display-3 text-center text-field"
+                     ng-bind-html="vmELogin.$sce.trustAsHtml(vmELogin.convertPassword(vmELogin.password))">
+                </div>
+
+                <calculator-comp-no text="vmELogin.password" cancel="vmELogin.clearAction"></calculator-comp-no>
+            </md-card>
+        </div>
+        <span flex></span>
+    </md-content>
+</div>

@@ -1,0 +1,107 @@
+<!--<md-card class="e-login-wrapper">-->
+    <!--<md-card-title>-->
+        <!--<md-card-title-text>-->
+            <!--<span class="md-headline">Login</span>-->
+        <!--</md-card-title-text>-->
+    <!--</md-card-title>-->
+    <!--<md-card-content>-->
+<div layout-padding="" class="e-login-wrapper">
+    <md-grid-list
+            ng-show="!vmELogin.showActionsPanel"
+            md-cols="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+            md-row-height-gt-md="1:1" md-row-height="4:3"
+            md-gutter="20px" md-gutter-gt-sm="10px">
+
+        <md-grid-tile ng-repeat="u in vmELogin.users"
+                      md-rowspan="1"
+                      md-colspan="2"
+                      md-colspan-sm="1"
+                      md-colspan-xs="1"
+                      ng-click="vmELogin.select(u)"
+                      class="green md-whiteframe-2dp">
+            <md-icon></md-icon>
+            <md-grid-tile-footer class="center"><h3>{{u.first_name}} {{u.last_name}}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+    <md-content class="md-padding" layout-xs="column" layout="row" ng-if="vmELogin.showActionsPanel">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card>
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button ng-click="vmELogin.back()" class="md-raised"><i class="fa fa-arrow-left"></i> Back
+                    </md-button>
+                    <span flex></span>
+                    <md-button ng-disabled="true"><i class="fa fa-rotate-left"></i> Change Password</md-button>
+                </md-card-actions>
+                <md-divider></md-divider>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Hi, {{vmELogin.selectedUser.first_name}} {{vmELogin.selectedUser.last_name}}</span>
+                        <span class="md-subhead">{{vmELogin.selectedUser.role_name}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media">
+                            <img class="drop-shadow" src="src/assets/images/logo.png" alt="">
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-primary md-raised large" ng-click="vmELogin.in()"><i
+                            class="fa fa-sign-in"></i> In
+                    </md-button>
+                    <md-button class="md-warn md-raised large" ng-click="vmELogin.out()"><i
+                            class="fa fa-sign-out"></i> Out
+                    </md-button>
+                </md-card-actions>
+                <md-list flex>
+                    <md-divider></md-divider>
+                    <md-subheader class="md-no-sticky">History</md-subheader>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <p layout="row"><b>Last time check
+                            work-in: </b>
+                            <span flex></span>
+                            <small>{{vmELogin.lastWorkIn.in_time | date : 'EEE MMM d, y - h:mm:ss a'}}</small>
+                        </p>
+                    </md-list-item>
+                    <md-list-item>
+                        <p layout="row"><b>Last time check
+                            work-out: </b>
+                            <span flex></span>
+                            <small>{{vmELogin.lastWorkOut.out_time | date : 'EEE MMM d, y - h:mm:ss a'}}</small>
+                        </p>
+                    </md-list-item>
+
+                </md-list>
+
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="50" layout="column" ng-class="{'disabled':vmELogin.message==''}"
+
+             class="actions-wrapper">
+            <md-card>
+                <md-toolbar md-scroll-shrink>
+                    <div class="md-toolbar-tools">
+                        <h3>
+                            <span>{{vmELogin.message}}</span>
+                        </h3>
+                        <span flex></span>
+                        <md-button class="md-raised md-warn" ng-click="vmELogin.ok()"
+                                   ng-disabled="!vmELogin.password">OK
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <span class="md-subhead text-center">{{vmELogin.messageAction}}</span>
+
+                <div class="md-block md-display-3 text-center text-field"
+                     ng-bind-html="vmELogin.$sce.trustAsHtml(vmELogin.convertPassword(vmELogin.password))">
+                </div>
+
+                <calculator-comp-no text="vmELogin.password" cancel="vmELogin.clearAction"></calculator-comp-no>
+            </md-card>
+        </div>
+    </md-content>
+</div>
+
+
+    <!--</md-card-content>-->
+<!--</md-card>-->
