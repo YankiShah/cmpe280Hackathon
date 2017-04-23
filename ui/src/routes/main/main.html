@@ -7,7 +7,7 @@
             md-whiteframe="4">
 
         <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Smart Farm</h1>
+            <h1 class="md-toolbar-tools">Water Reservoir</h1>
             <img class="logo-side" src="src/assets/images/logo.jpg" alt="">
         </md-toolbar>
         <md-content>
@@ -61,7 +61,7 @@
         </md-content>
         <div flex></div>
         <div class="footer text-center">
-            <small>&#169; 2017, by Nam Phan. Education purpose only.</small>
+            <small>&#169; 2017. Education purpose only.</small>
         </div>
 
     </md-sidenav>
@@ -102,8 +102,7 @@
         </div>
         <div layout="row" layout-align="top center">
             <ui-view flex></ui-view>
-            <field-map place-polygon-callback="vm.addingZoneOnMap"
-                       place-marker-callback="vm.addingHubOnMap"></field-map>
+            <field-map></field-map>
         </div>
 
         <div flex></div>
