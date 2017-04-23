@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('routerApp')
-    .controller('MainCtrl', function ($scope, $timeout, $rootScope, $mdSidenav, $log, $state, $document, $stateParams, $mdDialog, APIService, GeneralService) {
+    .controller('MainCtrl', function ($scope, $timeout, $rootScope, $mdSidenav, $log, $state, WSService, $stateParams, $mdDialog, APIService, GeneralService) {
         var vm = this;
 
         $scope.toggleLeft = buildDelayedToggler('left');
@@ -91,36 +91,37 @@ angular.module('routerApp')
             this.status_name = obj.status_name;
         }
 
-        function loadZones() {
-            $rootScope.zoneList = [];
-            return APIService.getZones().success(function (rs) {
-                console.log(rs);
-                if (rs.status == 'ok') {
-                    var array = [];
-                    _.forEach(rs.zones, function (e) {
-                        array.push(new Zone(e));
-                    });
-                    $rootScope.zoneList = array;
-                }
-            })
-        }
-
-        function loadHubs() {
-            $rootScope.hubList = [];
-            return APIService.getHubs().success(function (rs) {
-                console.log(rs);
-                if (rs.status == 'ok') {
-                    var array = [];
-                    _.forEach(rs.hubs, function (e) {
-                        array.push(new Hub(e));
-                    });
-                    $rootScope.hubList = array;
-                }
-            })
-        }
+        // function loadZones() {
+        //     $rootScope.zoneList = [];
+        //     return APIService.getZones().success(function (rs) {
+        //         console.log(rs);
+        //         if (rs.status == 'ok') {
+        //             var array = [];
+        //             _.forEach(rs.zones, function (e) {
+        //                 array.push(new Zone(e));
+        //             });
+        //             $rootScope.zoneList = array;
+        //         }
+        //     })
+        // }
+        //
+        // function loadHubs() {
+        //     $rootScope.hubList = [];
+        //     return APIService.getHubs().success(function (rs) {
+        //         console.log(rs);
+        //         if (rs.status == 'ok') {
+        //             var array = [];
+        //             _.forEach(rs.hubs, function (e) {
+        //                 array.push(new Hub(e));
+        //             });
+        //             $rootScope.hubList = array;
+        //         }
+        //     })
+        // }
 
         $timeout(function () {
-            loadZones();
-            loadHubs();
+            // loadZones();
+            // loadHubs();
+            WSService.startWS();
         })
     });

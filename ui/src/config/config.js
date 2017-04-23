@@ -15,6 +15,9 @@ var QUERY_LIST = {
         GET_ALL: URL_HTTP + "sensors",
         CREATE: ""
     },
+    reservoir:{
+        GET_ALL: URL_HTTP + "reservoirs"
+    }
 
 };
 

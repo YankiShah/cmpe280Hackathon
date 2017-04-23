@@ -12,6 +12,10 @@
             return $http.get(QUERIES.HUB.GET_ALL);
         }
 
+        self.getReservoirs = function () {
+            return $http.get(QUERIES.reservoir.GET_ALL);
+        }
+
         return self;
     });
 })(routerApp);

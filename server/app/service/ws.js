@@ -24,7 +24,10 @@ service.start = function (server) {
 };
 
 service.sendMessage = function (key, value) {
+  console.log("send ws", key,value);
   io.emit(key, JSON.stringify(value));
 };
+
+
 
 module.exports = service;

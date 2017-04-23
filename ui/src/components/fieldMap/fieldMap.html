@@ -1,6 +1,6 @@
 <div class="field-map-wrapper" map-lazy-load="https://maps.google.com/maps/api/js"
      map-lazy-load-params="{{vm.googleMapsUrl}}">
-    <ng-map center="41,-87" zoom="3"
+    <ng-map center="37.499107, -122.046051" zoom="10"
             map-type-control="true"
             map-type-control-options="{style:'HORIZONTAL_BAR', position:'BOTTOM_CENTER'}">
         <!--<drawing-manager-->
@@ -11,7 +11,7 @@
         <!--PolygonOptions="{fillColor:'#adff2f',strokeColor:'#adff2f',draggable:true}">-->
         <!--</drawing-manager>-->
     </ng-map>
-    <div class="control-bar">
+   <!-- <div class="control-bar">
         <ul class="list-unstyled">
             <li>
                 <md-button class="md-fab md-mini" aria-label="clear" ng-show="vm.showCreateZoneForm||vm.showCreateHubForm" ng-click="vm.reset()">
@@ -49,112 +49,73 @@
                 </md-button>
             </li>
         </ul>
-        <!--<button type="button" class="btn btn-secondary btn-sm" title="clear" ng-click="vmMapPolygon.clear()"><i-->
-        <!--class="fa fa-times"></i></button>-->
+    </div>-->
 
-        <!--<button type="button" class="btn btn-secondary btn-sm" title="clear"-->
-        <!--ng-show="!vmMapPolygon.GeneralService.map.isFull"-->
-        <!--ng-click="vmMapPolygon.GeneralService.map.expand(map)"><i-->
-        <!--class="fa fa-expand"></i></button>-->
-        <!--<button type="button" class="btn btn-secondary btn-sm" title="clear"-->
-        <!--ng-show="vmMapPolygon.GeneralService.map.isFull"-->
-        <!--ng-click="vmMapPolygon.GeneralService.map.compress(map)"><i-->
-        <!--class="fa fa-compress"></i></button>-->
-    </div>
-
-    <div class="details-panel cssSlideUp ng-hide" ng-init="vm.showCreateZoneForm = false"
+    <div class="details-panel cssSlideUp ng-hide"
          ng-show="vm.showCreateZoneForm">
         <form name="createZoneForm">
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Create Zone</span>
+                        <span class="md-headline">Reservoir: {{vm.selectedR.reservoirName}}</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content layout="column">
-                    <div flex layout-gt-md="row" layout="column">
-                        <md-input-container class="md-block" flex>
-                            <label>Zone Name</label>
-                            <input name="name" ng-model="vm.addZoneCtrl.data.name" maxlength="100" required>
-                            <div ng-messages="createZoneForm.name.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
-
-                        <md-input-container class="md-block" flex>
-                            <label>Crop Name</label>
-                            <input required name="crop" ng-model="vm.addZoneCtrl.data.crop" maxlength="100">
-                            <div ng-messages="createZoneForm.name.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
-                    <div flex>
-                        <div class="md-subhead"><i class="material-icons" style="vertical-align: sub">format_shapes</i>
-                            Zone Coordinates (draw polygon on map)
-                        </div>
-                        <md-chips ng-model="vm.addZoneCtrl.coordinates"
-                                  placeholder="Enter with format: [#,#]"
-                                  md-removable="true"
-                                  md-on-add="vm.addZoneCtrl.addChip($chip, $index)"
-                                  md-enable-chip-edit="true">
-
-                        </md-chips>
-
-                    </div>
+                    <p>Capacity: {{vm.selectedR.reservoirCapacity}} Acre-feet</p>
+                    <p>State: {{vm.selectedR.reserviorState}}</p>
+                    <p>Location: {{vm.selectedR.reservoirLat}}, {{vm.selectedR.reservoirLng}}</p>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-primary md-raised" ng-click="vm.createNewZone()">Create</md-button>
-                    <md-button ng-click="vm.reset()">Cancle</md-button>
+                    <md-button ng-click="vm.reset()">Close</md-button>
                 </md-card-actions>
             </md-card>
 
         </form>
     </div>
-    <div class="details-panel cssSlideUp ng-hide" ng-init="vm.showCreateHubForm = false" ng-show="vm.showCreateHubForm">
-        <form name="createHubForm">
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Create Hub</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content layout="column">
-                    <div flex layout-gt-md="row" layout="column">
-                        <md-input-container class="md-block" flex>
-                            <label>Mac Address</label>
-                            <input name="mac" ng-model="vm.addHubCtrl.data.mac" maxlength="100" required>
-                            <div ng-messages="createHubForm.mac.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
-                    <div flex layout-gt-md="row" layout="column">
-                        <md-input-container class="md-block" flex>
-                            <label>Latitude</label>
-                            <md-icon><i class="material-icons">location_on</i></md-icon>
-                            <input required name="lat" type="number" ng-model="vm.addHubCtrl.data.lat" maxlength="20">
-                            <div ng-messages="createHubForm.lat.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
+    <!--<div class="details-panel cssSlideUp ng-hide" ng-init="vm.showCreateHubForm = false" ng-show="vm.showCreateHubForm">-->
+        <!--<form name="createHubForm">-->
+            <!--<md-card>-->
+                <!--<md-card-title>-->
+                    <!--<md-card-title-text>-->
+                        <!--<span class="md-headline">Create Hub</span>-->
+                    <!--</md-card-title-text>-->
+                <!--</md-card-title>-->
+                <!--<md-card-content layout="column">-->
+                    <!--<div flex layout-gt-md="row" layout="column">-->
+                        <!--<md-input-container class="md-block" flex>-->
+                            <!--<label>Mac Address</label>-->
+                            <!--<input name="mac" ng-model="vm.addHubCtrl.data.mac" maxlength="100" required>-->
+                            <!--<div ng-messages="createHubForm.mac.$error">-->
+                                <!--<div ng-message="required">This is required.</div>-->
+                            <!--</div>-->
+                        <!--</md-input-container>-->
+                    <!--</div>-->
+                    <!--<div flex layout-gt-md="row" layout="column">-->
+                        <!--<md-input-container class="md-block" flex>-->
+                            <!--<label>Latitude</label>-->
+                            <!--<md-icon><i class="material-icons">location_on</i></md-icon>-->
+                            <!--<input required name="lat" type="number" ng-model="vm.addHubCtrl.data.lat" maxlength="20">-->
+                            <!--<div ng-messages="createHubForm.lat.$error">-->
+                                <!--<div ng-message="required">This is required.</div>-->
+                            <!--</div>-->
+                        <!--</md-input-container>-->
 
-                        <md-input-container class="md-block" flex>
-                            <label>Longitude</label>
-                            <md-icon><i class="material-icons">remove</i></md-icon>
-                            <input required name="lng" type="number" ng-model="vm.addHubCtrl.data.lng" maxlength="20">
-                            <div ng-messages="createHubForm.lng.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-primary md-raised" ng-click="vm.createNewHub()">Create</md-button>
-                    <md-button ng-click="vm.reset()">Cancle</md-button>
-                </md-card-actions>
-            </md-card>
+                        <!--<md-input-container class="md-block" flex>-->
+                            <!--<label>Longitude</label>-->
+                            <!--<md-icon><i class="material-icons">remove</i></md-icon>-->
+                            <!--<input required name="lng" type="number" ng-model="vm.addHubCtrl.data.lng" maxlength="20">-->
+                            <!--<div ng-messages="createHubForm.lng.$error">-->
+                                <!--<div ng-message="required">This is required.</div>-->
+                            <!--</div>-->
+                        <!--</md-input-container>-->
+                    <!--</div>-->
+                <!--</md-card-content>-->
+                <!--<md-card-actions layout="row" layout-align="end center">-->
+                    <!--<md-button class="md-primary md-raised" ng-click="vm.createNewHub()">Create</md-button>-->
+                    <!--<md-button ng-click="vm.reset()">Cancle</md-button>-->
+                <!--</md-card-actions>-->
+            <!--</md-card>-->
 
-        </form>
-    </div>
+        <!--</form>-->
+    <!--</div>-->
 </div>
