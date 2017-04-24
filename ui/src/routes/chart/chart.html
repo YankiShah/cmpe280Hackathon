@@ -1,7 +1,20 @@
 <div class="chart-wrapper">
     <md-card>
         <md-content style="position: relative;">
-            <div id="container" style="max-width: 100%;width: 100%;"></div>
+            <div id="containerx" style="max-width: 100%;width: 100%;"></div>
+        </md-content>
+    </md-card>
+
+    <md-card>
+        <md-content style="position: relative;">
+            <br><br>
+            <svg id="fillgauge1" width="100%" height="250" onclick="gauge1.update(NewValue());"></svg>
+            <div id="container" style="width:100%; height:300px;"></div><br><br><br>
+            <svg id="fillgauge2" width="100%" height="250" onclick="gauge2.update(NewValue());"></svg>
+            <div id="container1" style="width:100%; height:300px;"></div><br><br><br>
+            <svg id="fillgauge3" width="100%" height="250" onclick="gauge3.update(NewValue());"></svg>
+
+            <div id="container2" style="width:100%; height:300px;"></div><br><br>
         </md-content>
     </md-card>
 </div>

@@ -14,12 +14,6 @@ routerApp.config(function ($stateProvider, $locationProvider, $urlRouterProvider
             controllerAs: 'vm',
             controller: 'MainCtrl',
         })
-        .state('main.home', {
-            url: '/home',
-            templateUrl: 'src/routes/home/home.html',
-            controllerAs: 'vm',
-            controller: 'HomeCtrl',
-        })
         .state('main.map', {
             url: '/map',
             templateUrl: 'src/routes/map/map.html',
